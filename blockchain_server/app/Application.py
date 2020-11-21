@@ -1,0 +1,155 @@
+import datetime
+import json
+
+import requests
+from flask import render_template, redirect, request
+
+from app import app
+
+# Node in the blockchain network that our application will communicate with
+# to fetch and add data.
+CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
+
+posts = []
+item_info = {}
+
+def fetch_posts():
+    """
+    Function to fetch the chain from a blockchain node, parse the
+    data, and store it locally.
+    """
+    get_chain_address = f"{CONNECTED_NODE_ADDRESS}/chain"
+    response = requests.get(get_chain_address)
+    if response.status_code == 200:
+        content = []
+        chain = json.loads(response.content)
+        for block in chain["chain"]:
+            for tx in block["transactions"]:
+                tx["index"] = block["index"]
+                tx["hash"] = block["previous_hash"]
+                content.append(tx)
+
+        global posts
+        posts = sorted(content,
+                       key=lambda k: k['timestamp'],
+                       reverse=True)
+
+def fetch_item_info():
+    """
+    Fetch the info for the last item requested.
+    """
+    output_address = f'{CONNECTED_NODE_ADDRESS}/checkout'
+    response = requests.get(output_address)
+
+    if response.status_code == 200:
+        global item_info
+        product = json.loads(response.content)
+        item_info = product
+
+@app.route('/start_mine', methods=['POST'])
+def start_mine():
+    """
+    Begin the mining process.
+    """
+    output_address = f'{CONNECTED_NODE_ADDRESS}/mine'
+    requests.get(output_address)
+
+    return redirect('/')
+
+@app.route('/submit', methods=['POST'])
+def submit_textarea():
+    """
+    Endpoint to create a new transaction via our application
+    """
+
+    name = request.form["name"]
+    year = request.form["year"]
+    brand = request.form["brand"]
+    post_desc = request.form["description"]
+    materials = request.form["materials"]
+    location = request.form["location"]
+    journey = request.form["journey"]
+    key = request.form["key"]
+
+    post_object = {
+        'name': name,
+        'brand': brand,
+        'year': year,
+        'description': post_desc,
+        'materials': materials,
+        'location': location,
+        'journey': journey,
+        'key': key
+    }
+
+    # Submit a transaction
+    new_tx_address = f"{CONNECTED_NODE_ADDRESS}/new_transaction"
+
+    requests.post(new_tx_address,
+                  json=post_object,
+                  headers={'Content-type': 'application/json'})
+
+    # Return to the homepage
+    return redirect('/')
+
+@app.route('/check', methods=['POST'])
+def submit_check():
+    """
+    Endpoint to submit a tx id to get the info for.
+    """
+    tx_id = request.form["tx_id"]
+
+    post_object = {
+        'tx_id': tx_id
+    }
+
+    tocheck_address = f"{CONNECTED_NODE_ADDRESS}/check"
+
+    requests.post(tocheck_address,
+                  json=post_object,
+                  headers={'Content-type': 'application/json'})
+    
+    # Go to the page with the results if the search
+    return redirect('/resultpage')
+
+@app.route('/resultpage')
+def result():
+    """
+    The page for the result of the search.
+    """
+    fetch_item_info()
+    return render_template('result.html',
+                           title='Results of item check',
+                           product_info=item_info,
+                           node_address=CONNECTED_NODE_ADDRESS,
+                           readable_time=timestamp_to_string)
+
+@app.route('/')
+def index():
+    """
+    The page to add product information to the chain.
+    """
+    fetch_posts()
+    return render_template('index.html',
+                           title='Company Data Submit Page',
+                           posts=posts,
+                           node_address=CONNECTED_NODE_ADDRESS,
+                           readable_time=timestamp_to_string)
+                           
+def timestamp_to_string(epoch_time):
+    return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
+
+@app.route('/validate')
+def validate():
+    """
+    The page to validate the product.
+    """
+    fetch_posts()
+    return render_template('validate.html',
+                           title='Customer Check Page',
+                           posts=posts,
+                           node_address=CONNECTED_NODE_ADDRESS,
+                           readable_time=timestamp_to_string)
+                           
+def timestamp_to_string(epoch_time):
+    return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
