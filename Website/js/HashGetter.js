@@ -15,7 +15,6 @@ class HashGetter{
   }
   
   splitUrl() {
-    let hashCode = "";
     let past_h = false;
     for (var i = 0; i < this.url.length; i++) {
       if (this.url[i+2] == "=" && this.url[i+1] == "h") {

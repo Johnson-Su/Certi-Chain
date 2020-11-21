@@ -133,7 +133,8 @@ def result():
                            title='Results of item check',
                            product_info=item_info,
                            node_address=CONNECTED_NODE_ADDRESS,
-                           readable_time=timestamp_to_string)
+                           readable_time=timestamp_to_string,
+                           )
 
 @app.route('/')
 def index():
