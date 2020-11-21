@@ -12,6 +12,7 @@ CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
 
 posts = []
 item_info = {}
+errors = []
 
 def fetch_posts():
     """
@@ -33,6 +34,12 @@ def fetch_posts():
         posts = sorted(content,
                        key=lambda k: k['timestamp'],
                        reverse=True)
+
+def grab_errors():
+    global errors
+    err_list = errors
+    errors = []
+    return err_list
 
 def fetch_item_info():
     """
@@ -85,9 +92,13 @@ def submit_textarea():
     # Submit a transaction
     new_tx_address = f"{CONNECTED_NODE_ADDRESS}/new_transaction"
 
-    requests.post(new_tx_address,
+    tx_request = requests.post(new_tx_address,
                   json=post_object,
                   headers={'Content-type': 'application/json'})
+
+    if tx_request.status_code == 404:
+        global errors
+        errors = ["missing_args"]
 
     # Return to the homepage
     return redirect('/')
@@ -130,9 +141,10 @@ def index():
     The page to add product information to the chain.
     """
     fetch_posts()
-    return render_template('index.html',
+    return render_template('companyside.html',
                            title='Company Data Submit Page',
                            posts=posts,
+                           errors = grab_errors(),
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
                            
