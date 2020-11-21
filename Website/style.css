@@ -295,3 +295,43 @@ input[type=submit] {
     line-height: 21px;
     letter-spacing: 0.012em;
 }
+
+.dne{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+  letter-spacing: 0.012em;
+
+  color: #050505;
+}
+
+.reportbutton{
+  width: 202px;
+  height: 48px;
+
+  background: #FFFFFF;
+  border-radius: 100px;
+  border: 1px solid white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.012em;
+  color: #F9095F;
+
+}
+
+.cpright{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.5);
+}
