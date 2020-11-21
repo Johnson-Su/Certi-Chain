@@ -218,25 +218,80 @@
   padding:0px;
 }
 
-.curveArea {
-  width: 100vw;
-  height: 300px;
+.projecttitle{
+  font-family: Teko;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+  /* identical to box height */
+  letter-spacing: 0.05em;
+
+  color: #0E0E0E;
 }
 
-.mainBox {
-  height: 100%;
-  background: yellow;
-  overflow: hidden;
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.012em;
 }
 
-.curveSection {
-  width: 200%;
-  height: 100%;
-  border-radius: 50%;
-  background: #0E0E0E;
-  top: 85%;
-  left: -50%;
-  right: 0;
-  border: 5px #0E0E0E;
-  position: relative;
+textarea{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.012em;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #00CD21;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.012em;
+}
+
+.companysidebutton{
+    width: 60%;
+    background-color: #00CD21;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.012em;
 }
