@@ -14,6 +14,7 @@ user_key = auth.read_public_key('app\\user_key\\public_pem.pem')
 posts = []
 item_info = {}
 errors = []
+t_id = ""
 
 def fetch_posts():
     """
@@ -134,12 +135,25 @@ def result():
     """
     The page for the result of the search.
     """
+
+    tx_id = request.args.get('t')
+
+    post_object = {
+        'tx_id': tx_id
+    }
+
+    tocheck_address = f"{CONNECTED_NODE_ADDRESS}/check"
+
+    requests.post(tocheck_address,
+                  json=post_object,
+                  headers={'Content-type': 'application/json'})
     fetch_item_info()
     return render_template('result.html',
                            title='Results of item check',
                            product_info=item_info,
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string,
+                           t_id = t_id
                            )
 
 @app.route('/')
@@ -175,3 +189,6 @@ def validate():
                            
 def timestamp_to_string(epoch_time):
     return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
+
+
+    
