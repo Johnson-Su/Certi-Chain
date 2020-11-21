@@ -82,22 +82,21 @@
       {% endif %}
       <center>
       {% for tx in pending%}
-      <div style="border: 5px solid black;">
-        <b class="verify">#: {{tx.tx_num}}</b>
+      <div class="row d-flex justify-content-center" style="border: 5px solid black; width: 60%;">
+        <b class="lessimportant"><span class = "verify">Item Number </span> {{tx.tx_num}}</b>
         <br>
-        <b class="verify">NAME: {{tx.name}}</b>
+        <b class="lessimportant"><span class = "verify">Product Name </span> {{tx.name}}</b>
         <br>
-        <b class="verify">BRAND: {{tx.brand}}</b>
+        <b class="lessimportant"><span class = "verify">Brand </span> {{tx.brand}}</b>
         <br>
-        <b class="verify">DESC: {{tx.description}}</b>
+        <b class="lessimportant"><span class = "verify">Description </span>{{tx.description}}</b>
         <br>
-        <b class="verify">MATS: {{tx.materials}}</b>
+        <b class="lessimportant"><span class = "verify">Materials </span> {{tx.materials}}</b>
         <br>
-        <b class="verify">PATH: {{tx.journey}}</b>
+        <b class="lessimportant"><span class = "verify">Product History </span> {{tx.journey}}</b>
         <br>
-        <b class="verify">KEY: {{tx.key}}</b>
+        <b class="lessimportant"><span class = "verify">Key </span> {{tx.key}}</b>
         <br>
-        <b>__________________________________________-</b>
         <br>
       </div>
       {% endfor %}
