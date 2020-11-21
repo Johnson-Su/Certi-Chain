@@ -276,6 +276,8 @@ def mine_unconfirmed_transactions():
     block.
     """
     result = blockchain.mine()
+    global tx_number
+    tx_number = 1
     if not result:
         return "No transactions to mine"
     else:
