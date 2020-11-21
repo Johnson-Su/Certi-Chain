@@ -80,6 +80,18 @@
         <b>Successfully Posted a Product!</b>
         </center>
       {% endif %}
+      {% for tx in pending%}
+        <b>{{tx.name}}</b>
+        <br>
+        <b>{{tx.brand}}</b>
+        <br>
+        <b>{{tx.description}}</b>
+        <br>
+        <b>{{tx.materials}}</b>
+        <br>
+        <b>{{tx.journey}}</b>
+        <br>
+      {% endfor %}
 
   </body>
 

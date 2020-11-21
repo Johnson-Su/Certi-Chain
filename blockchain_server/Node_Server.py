@@ -81,12 +81,12 @@ def get_chain():
                        "chain": chain_data,
                         "peers": list(peers)})
 
-@app.route('/pending_tx')
+@app.route('/pending_tx', methods=["GET"])
 def get_pending_tx():
     """
     The end point for the number of pending transactions.
     """
-    return json.dumps(blockchain.mine_unconfirmed_transactions)
+    return json.dumps(blockchain.unconfirmed_transactions)
 
 @app.route('/check', methods=['POST'])
 def add_check():

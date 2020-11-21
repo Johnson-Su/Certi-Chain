@@ -53,7 +53,6 @@ def fetch_item_info():
         global item_info
         product = json.loads(response.content)
         item_info = product
-        item_info["journey"] = item_info.journey.split("\r\n")
 
 @app.route('/start_mine', methods=['POST'])
 def start_mine():
@@ -149,10 +148,13 @@ def index():
     The page to add product information to the chain.
     """
     fetch_posts()
+    pending_tx_address = f'{CONNECTED_NODE_ADDRESS}/pending_tx'
+    pending_tx = requests.get(pending_tx_address)
     return render_template('companyside.html',
                            title='Company Data Submit Page',
                            posts=posts,
-                           errors = grab_errors(),
+                           pending=json.loads(pending_tx.content),
+                           errors=grab_errors(),
                            node_address=CONNECTED_NODE_ADDRESS,
                            readable_time=timestamp_to_string)
                            
