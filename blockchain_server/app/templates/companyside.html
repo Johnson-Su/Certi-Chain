@@ -67,37 +67,39 @@
     </div>
       {% if "missing_args" in errors %}
       <center>
-      <b>Missing a field</b>
+      <b  class="titles1">Missing a field</b>
       </center>
       {% endif %}
       {% if "invalid_user" in errors %}
         <center>
-        <b>Account Number not Found</b>
+        <b  class="titles1">Account Number not Found</b>
         </center>
       {% endif %}
       {% if "none" in errors %}
         <center>
-        <b>Successfully Posted a Product!</b>
+        <b class="titles1">Successfully Posted a Product!</b>
         </center>
       {% endif %}
       <center>
       {% for tx in pending%}
-        <b>#: {{tx.tx_num}}</b>
+      <div style="border 5px solid black">
+        <b class="verify">#: {{tx.tx_num}}</b>
         <br>
-        <b>NAME: {{tx.name}}</b>
+        <b class="verify">NAME: {{tx.name}}</b>
         <br>
-        <b>BRAND: {{tx.brand}}</b>
+        <b class="verify">BRAND: {{tx.brand}}</b>
         <br>
-        <b>DESC: {{tx.description}}</b>
+        <b class="verify">DESC: {{tx.description}}</b>
         <br>
-        <b>MATS: {{tx.materials}}</b>
+        <b class="verify">MATS: {{tx.materials}}</b>
         <br>
-        <b>PATH: {{tx.journey}}</b>
+        <b class="verify">PATH: {{tx.journey}}</b>
         <br>
-        <b>KEY: {{tx.key}}</b>
+        <b class="verify">KEY: {{tx.key}}</b>
         <br>
         <b>__________________________________________-</b>
         <br>
+      </div>
       {% endfor %}
       </center>
 

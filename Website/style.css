@@ -105,6 +105,18 @@
   color: #FFFFFF;
 }
 
+.titles1{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  /* identical to box height, or 156% */
+  letter-spacing: 0.012em;
+
+  color: #0E0E0E;
+}
+
 .subtext{
   font-family: Roboto;
   font-style: normal;
