@@ -1,6 +1,10 @@
+from auth.Authenification import decrypt
 from flask import Flask, request
+
 import requests, json, time, re
 import Blockchain, Block
+
+from auth import Authenification as auth
 
 # init flask
 app = Flask(__name__)
@@ -9,13 +13,21 @@ app = Flask(__name__)
 blockchain = Blockchain.Blockchain()
 blockchain.create_genesis_block()
 
+# The last thing requested
 tx_search = None
+
+# The public key
+my_key = auth.read_private_key('server_key\private_pem.pem')
+
+# List of accepted accounts
+accounts = ["1001"]
 
 # Number of transactions in the current block to be
 tx_number = 1
 
 # Set of adresses of peers within the network
 peers = set()
+
 
 @app.route('/new_transaction', methods=['POST'])
 def new_transaction():
@@ -38,6 +50,9 @@ def new_transaction():
         # If informtaion is missing, do not add this transaction
         if (not tx_data.get(field)):
             return "Invalid transaction data", 404
+
+    if (not tx_data["key"] in accounts):
+        return "Invalid user", 405
     
     # Time tx was made
     tx_data["timestamp"] = time.time()

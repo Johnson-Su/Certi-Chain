@@ -1,14 +1,15 @@
-import datetime
-import json
+import datetime, json, requests
 
-import requests
 from flask import render_template, redirect, request
 
+from auth import Authenification as auth
 from app import app
 
 # Node in the blockchain network that our application will communicate with
 # to fetch and add data.
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
+
+user_key = auth.read_public_key('app\\user_key\\public_pem.pem')
 
 posts = []
 item_info = {}
@@ -52,6 +53,7 @@ def fetch_item_info():
         global item_info
         product = json.loads(response.content)
         item_info = product
+        item_info["journey"] = item_info.journey.split("\r\n")
 
 @app.route('/start_mine', methods=['POST'])
 def start_mine():
@@ -68,6 +70,8 @@ def submit_textarea():
     """
     Endpoint to create a new transaction via our application
     """
+
+    global errors
 
     name = request.form["name"]
     year = request.form["year"]
@@ -97,8 +101,11 @@ def submit_textarea():
                   headers={'Content-type': 'application/json'})
 
     if tx_request.status_code == 404:
-        global errors
         errors = ["missing_args"]
+    elif tx_request.status_code == 405:
+        errors = ["invalid_user"]
+    else:
+        errors = ["none"]
 
     # Return to the homepage
     return redirect('/')
