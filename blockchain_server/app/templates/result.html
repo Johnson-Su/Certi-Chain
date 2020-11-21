@@ -1,104 +1,203 @@
-<!-- extend base layout -->
-{% extends "base.html" %}
-
 {% block content %}
-	<br>
-    {% if product_info.error == "None" %}
-    <a href="/validate"><button>Back</button></a>
-    <br>
-    <h2>NAME:</h2>
-    <b>{{product_info.name}} </b>
-    <br>
-    <h2>BRAND:</h2>
-    <b>{{product_info.brand}} </b>
-    <br>
-    <h2>YEAR:</h2>
-    <b>{{product_info.year}} </b>
-    <br>
-    <h2>JOURNEY:</h2>
-    <b>{{product_info.journey}} </b>
-    <br>
-    <h2>MATERIALS:</h2>
-    <b>{{product_info.materials}} </b>
-    <br>
-    <h2>LOCATION:</h2>
-    <b>{{product_info.location}} </b>
-    <br>
-    <h2> DESCRIPTION: </h2>
-    <b>{{product_info.description}} </b>
-    <br>
-    {% endif %}
-    {% if product_info.error == "inv_tx_id" %}
-    <h1>INVALID TRANSACTION ID</h1>
-    {% endif %}
-    {% if product_info.error == "no_tx"%}
-    <h1>TRANSACTION DNE</h1>
-    {% endif %}
-  
+<html lang="en">
+  <head>
 
-	<div style="margin: 20px;">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<style>
-		.post_box {
-		    background: #fff;
-		    padding: 12px 0px 0px 12px;
-		    margin-top: 0px;
-		    margin-bottom: 8px;
-		    border-top: 1px solid #f0f0f0;
-		}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-		.post_box-header {
-		    padding-bottom: 12px;
-		}
+    <!-- CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-		.post_box-avatar {
-		    width: 38px;
-		    height: 38px;
-		    border-radius: 50%;
-		    display: flex;
-		    justify-content: center;
-		    align-items: center;
-		    color: white;
-		    font-size: 22px;
-		    float: left;
-		    margin-right: 16px;
-		    border: 1px solid #fff;
-		    box-shadow: 0px 0px 0px 2px #f00;
-		}
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-		.post_box-avatar::after {
-		    content:"";
-		    display:block;
-		}
+    <title>Certi-Chain</title>
 
-		.post_box-name {
-		    font-weight: bold;
-		}
+    <meta property="og:title" content="Certi-Chain" />
+    <meta property="og:description" content="Verify your products with blockchain" />
+    <!-- <meta property="og:image" content="FILL THIS IN" /> -->
 
-		.post_box-subtitle {
-		    color: #777;
-		}
+  </head>
 
-		.post_box-body {
-		    margin-top: 16px;
-		    margin-bottom: 8px;
-		}
+  <body style="background-color:#F6F6F6;">
 
-		.post_box-options {
-		    float: right;
-		}
-		.option-btn {
-		    background: #f8f8f8;
-		    border: none;
-		    color: #2c3e50;
-		    padding: 7px;
-		    cursor: pointer;
-		    font-size: 14px;
-		    margin-left: 2px;
-		    margin-right: 2px;
-		    outline: none;
-		    height: 42px;
-		}
-	</style>
+	{% if product_info.error == "inv_tx_id" %}
+    <!-- invalid product -->
+    <div class="container-fluid" style="min-height: 640px; height:95vh; background-color:#F6F6F6;">
+      <div class="mediumspacer"></div>
+      <div class="mediumspacer"></div>
+      <!-- check or x -->
+      <div class="row d-flex justify-content-center">
+        <img src="../static/Assets/x.png">
+      </div>
+
+      <div class="mediumspacer"></div>
+
+      <!-- verification message -->
+      <div class="row d-flex justify-content-center">
+      <p class="verify">This product is</p>
+      </div>
+
+      <div class="box"></div>
+
+      <!-- authentic or not -->
+      <div class="row d-flex justify-content-center">
+      <h1 class="red fakereal">Not Authentic</h1>
+      </div>
+
+      <!-- product name -->
+      <div class="row d-flex justify-content-center">
+        <center>
+          <p class="dne" style="max-width:70%">This product does not exist on the Certi-Chain blockchain</p>
+        </center>
+      </div>
+      <div class="smallspacer"></div>
+      <div class="row d-flex justify-content-center">
+        <a href="https://www.stopfakes.gov/Reporting-an-Online-Vendor-Selling-Fakes"><button type="button" class="reportbutton" >Report This Item</button></a>
+      </div>
     </div>
+    <div class="container-fluid" style="height:5vh; background-color:#F6F6F6;">
+      <div class="row d-flex justify-content-center">
+        <p class="cpright">Copyright 2020, Certi-Chain</p>
+      </div>
+    </div>
+	{% endif %}
+
+	{% if product_info.error == "no_tx"%}
+    <!-- invalid product -->
+    <div class="container-fluid" style="min-height: 640px; height:95vh; background-color:#F6F6F6;">
+		<div class="mediumspacer"></div>
+		<div class="mediumspacer"></div>
+		<!-- check or x -->
+		<div class="row d-flex justify-content-center">
+		  <img src="../static/Assets/x.png">
+		</div>
+  
+		<div class="mediumspacer"></div>
+  
+		<!-- verification message -->
+		<div class="row d-flex justify-content-center">
+		<p class="verify">This product is</p>
+		</div>
+  
+		<div class="box"></div>
+  
+		<!-- authentic or not -->
+		<div class="row d-flex justify-content-center">
+		<h1 class="red fakereal">Not Authentic</h1>
+		</div>
+  
+		<!-- product name -->
+		<div class="row d-flex justify-content-center">
+		  <center>
+			<p class="dne" style="max-width:70%">This product does not exist on the Certi-Chain blockchain</p>
+		  </center>
+		</div>
+		<div class="smallspacer"></div>
+		<div class="row d-flex justify-content-center">
+		  <a href="https://www.stopfakes.gov/Reporting-an-Online-Vendor-Selling-Fakes"><button type="button" class="reportbutton" >Report This Item</button></a>
+		</div>
+	  </div>
+	  <div class="container-fluid" style="height:5vh; background-color:#F6F6F6;">
+		<div class="row d-flex justify-content-center">
+		  <p class="cpright">Copyright 2020, Certi-Chain</p>
+		</div>
+	  </div>
+    {% endif %}
+	
+	<!-- container for product info -->
+	{% if product_info.error == "None" %}
+    <div class="container-fluid" style="min-height: 640px; height:80vh; background-color:#F6F6F6;">
+      <div class="mediumspacer"></div>
+      <div class="mediumspacer"></div>
+      <!-- check or x -->
+      <div class="row d-flex justify-content-center">
+        <img src="../static/Assets/checkmark.png">
+      </div>
+
+      <div class="mediumspacer"></div>
+
+      <!-- verification message -->
+      <div class="row d-flex justify-content-center">
+      <p class="verify">We verified this is an</p>
+      </div>
+
+      <div class="box"></div>
+      <!-- authentic or not -->
+      <div class="row d-flex justify-content-center">
+      <h1 class="green fakereal">AUTHENTIC</h1>
+      </div>
+
+      <!-- product name -->
+      <div class="row d-flex justify-content-center">
+      <p class="verify">{{ product_info.name }}</p>
+      </div>
+
+      <!-- product brand -->
+      <div class="row d-flex justify-content-center">
+      <p class="lessimportant">{{ product_info.brand }}</p>
+      </div>
+
+      <!-- place and year -->
+      <div class="row d-flex justify-content-center">
+      <p class="lessimportant">{{ product_info.location + " " + product_info.year }}</p>
+      </div>
+    </div>
+
+    <!-- container for product details -->
+    <div class="container-fluid d-flex align-items-end" style="height: 10vh; position:bottom:0;">
+      <div class="row d-flex justify-content-center">
+        <img src="../static/Assets/notsus.png" style="width:100vw; max-height:10vh">
+      </div>
+    </div>
+    <div class="container-fluid secondbackground" style="border: 10px solid #0E0E0E;">
+      <div class="smallspacer"></div>
+      <div class="row d-flex justify-content-center">
+      <p class="details">Detailed Features</p>
+      </div>
+      <div class="row d-flex justify-content-center">
+      <ul class="timeline">
+
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag titles">Raw Materials</span>
+            </div>
+            <div class="smallspacer"></div>
+            <div class="subtext" style="white-space: pre-line;">{{product_info.materials}}</div>
+          </div>
+        </li>
+
+		{% for journey in product_info["journey"].split("\r\n") %}
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag titles">{{ journey }}</span>
+          </div>
+		</li>
+		{% endfor %}
+		
+
+      </ul>
+      </div>
+      <div class="smallspacer"></div>
+      <div class="smallspacer"></div>
+      <div class="row d-flex justify-content-center">
+      <p class="copyright">Copyright 2020, Certi-Chain</p>
+      </div>
+      <div class="smallspacer"></div>
+      <div class="smallspacer"></div>
+	</div>
+	{% endif %}
+  </body>
+
+</html>
 {% endblock %}
