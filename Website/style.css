@@ -12,7 +12,9 @@
 }
 /* testing end */
 
-body {background-color: F6F6F6;}
+.bod {
+  background-color: F6F6F6;
+}
 
 .verify{
   font-family: Roboto;
