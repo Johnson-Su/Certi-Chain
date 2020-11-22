@@ -52,7 +52,7 @@
 * The only difference is the port, which does not have to be 8001 but we use 8001, 8002, 8003, etc. just for simplicity.
 * Now that a new node is running we must sync it up with the other nodes.
 * Open up the terminal and type the following *(Windows users should use the bash shell as it does not work on cmd)*
-* Type the following:
+* Type the following: \
 `curl -X POST \
   http://127.0.0.1:8001/register_with \
   -H 'Content-Type: application/json' \
