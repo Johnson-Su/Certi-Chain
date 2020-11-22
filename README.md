@@ -57,4 +57,6 @@
   http://127.0.0.1:8001/register_with \
   -H 'Content-Type: application/json' \
   -d '{"node_address": "http://127.0.0.1:8000"}'`
-
+* Replace `8001` before the `/register_with` to the port you specified when starting up the node (ex. 8002, 8003 if you are starting up multple nodes).
+* This allows the new node to sync up with the other nodes.
+* Now if you add a new product to the chain and see that it updates at http://localhost:8000/chain, it should also update at http://localhost:8001/chain!
