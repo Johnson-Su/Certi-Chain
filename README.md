@@ -24,8 +24,11 @@ Blockchain based authentication for luxury/artisan goods using python
   * Flask
   * requests
 * Navigate to the LocalBlockChain directory on your machine
-* Start up the first node by typing in the terminal:
-  * **Windows Users**:
+* Start up the first node by typing the following in the terminal/cmd:
+  * **Windows Users (cmd)**:
   `set FLASK_APP=Node_Server.py`
+  `flask run --port 8000`
+  * **Linux (terminal)**
+  `export FLASK_APP=Node_Server.py`
   `flask run --port 8000`
 
