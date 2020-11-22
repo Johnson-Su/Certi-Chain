@@ -283,5 +283,5 @@ def mine_unconfirmed_transactions():
             announce_new_block(blockchain.last_block)
         return f"Block #{blockchain.last_block.index} is mined."
 
-if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+# if __name__ == "__main__":
+#     app.run(debug=True, port=8000)

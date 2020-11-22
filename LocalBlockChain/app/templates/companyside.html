@@ -50,18 +50,18 @@
       		<br>
       	  <textarea name="description" placeholder="Item Description"></textarea>
       		<br>
-      		<textarea name="materials"  placeholder="List of materials"></textarea>
+      		<textarea name="materials"  placeholder="List of Materials"></textarea>
       		<br>
       		<textarea name="journey"  placeholder="Product Journey"></textarea>
       		<br>
       		<input type="text" name="location" placeholder="Production Location">
       		<br>
-      	  <input type="submit" value="Save Submition">
+      	  <input type="submit" value="Post Product">
       	</form>
       </div>
       <div class="row d-flex justify-content-center">
         <form style="width: 60%;" action="/start_mine" id="start_mine" method="POST">
-          <input type="submit" value="Finalize Submission" class="companysidebutton">
+          <input type="submit" value="Submit Block" class="companysidebutton">
       </form>
       </div>
     </div>
@@ -83,8 +83,8 @@
       <center>
       {% for tx in pending%}
       <div style="border: 5px solid black; width: 60%; text-align: center;">
-        <b class="fakeorreal">{{tx.tx_num}}</b>
         <br>
+        <b class="fakeorreal">{{tx.tx_num}}</b>
         <br>
         <b class="verify">{{tx.name}} from {{tx.brand}}</b>
         <br>
@@ -95,6 +95,8 @@
         <b class="lessimportant1">Product History - {{tx.journey}}</b>
         <br>
         <b class="lessimportant1">Key - {{tx.key}}</b>
+        <br>
+        <b class="lessimportant1">Product ID - {{tx.block_num}}b{{tx.tx_num}}t</b>
         <br>
       </div>
       {% endfor %}
