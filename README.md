@@ -6,7 +6,7 @@
 
 **Certi-Chain** allows companies to combat counterfeiting and reduce the number of fakes on the market. It uses the immutability proporty of blockchains to prevent records of existing products being tampered. **Certi-Chain** is cheap and easy to implement in every product, just stick a certified NFC tag onto any product to ensure that one is real! 
 
-See it live [_here!_](https://certi-chain-hw.herokuapp.com)
+**See it live** [_here!_](https://certi-chain-hw.herokuapp.com)
 
 *There are 2 ways to try Certi-Chain*
   - Easily add items to the blockchain or check if an item exists using the Cert-Chain website
