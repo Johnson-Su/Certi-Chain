@@ -48,10 +48,10 @@
 * Open a *third* terminal and navigate to the same directory.
 * Start up another node by typing the following in the terminal/cmd:
   * **Windows Users (cmd)**:
-  `set FLASK_APP=Node_Server.py`
+  `set FLASK_APP=Node_Server.py` \
   `flask run --port 8001`
   * **Linux (terminal)**
-  `export FLASK_APP=Node_Server.py`
+  `export FLASK_APP=Node_Server.py` \
   `flask run --port 8001`
 * The only difference is the port, which does not have to be 8001 but we use 8001, 8002, 8003, etc. just for simplicity.
 * Now that a new node is running we must sync it up with the other nodes.
