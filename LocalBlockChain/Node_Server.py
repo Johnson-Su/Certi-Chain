@@ -1,10 +1,7 @@
-from auth.Authenification import decrypt
 from flask import Flask, request
 
 import requests, json, time, re
 import Blockchain, Block
-
-from auth import Authenification as auth
 
 # init flask
 app = Flask(__name__)
@@ -15,9 +12,6 @@ blockchain.create_genesis_block()
 
 # The last thing requested
 tx_search = None
-
-# The public key
-my_key = auth.read_private_key('server_key\private_pem.pem')
 
 # List of accepted accounts
 accounts = ["1001"]
@@ -288,3 +282,6 @@ def mine_unconfirmed_transactions():
             # announce the recently mined block to the network
             announce_new_block(blockchain.last_block)
         return f"Block #{blockchain.last_block.index} is mined."
+
+if __name__ == "__main__":
+    app.run(debug=True, port=8000)

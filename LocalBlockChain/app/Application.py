@@ -1,15 +1,11 @@
 import datetime, json, requests
 
 from flask import render_template, redirect, request
-
-from auth import Authenification as auth
 from app import app
 
 # Node in the blockchain network that our application will communicate with
 # to fetch and add data.
 CONNECTED_NODE_ADDRESS = "http://127.0.0.1:8000"
-
-user_key = auth.read_public_key('app\\user_key\\public_pem.pem')
 
 posts = []
 item_info = {}
@@ -189,6 +185,3 @@ def validate():
                            
 def timestamp_to_string(epoch_time):
     return datetime.datetime.fromtimestamp(epoch_time).strftime('%H:%M')
-
-
-    
