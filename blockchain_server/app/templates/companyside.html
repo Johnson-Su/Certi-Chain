@@ -82,21 +82,16 @@
       {% endif %}
       <center>
       {% for tx in pending%}
-      <div style="border: 5px solid black; width: 60%;">
-        <b class="verify">{{tx.tx_num}}</b>
+      <div style="border: 5px solid black; width: 60%; text-align: center;">
         <br>
+        <b class="fakeorreal">{{tx.tx_num}}</b>
         <br>
-        <b class="lessimportant"><pre><span class = "verify">Product Name </span> {{tx.name}}</pre></b>
+        <b class="verify">{{tx.name}} from {{tx.brand}}</b>
+        <b class="lessimportant"><span class = "verify">Description - </span>{{tx.description}}</b>
+        <b class="lessimportant"><span class = "verify">Materials - </span> {{tx.materials}}</b>
+        <b class="lessimportant"><span class = "verify">Product History - </span> {{tx.journey}}</b>
+        <b class="lessimportant"><span class = "verify">Key - </span> {{tx.key}}</b>
         <br>
-        <b class="lessimportant"><pre><span class = "verify">Brand </span> {{tx.brand}}</pre></b>
-        <br>
-        <b class="lessimportant"><pre><span class = "verify">Description </span>{{tx.description}}</pre></b>
-        <br>
-        <b class="lessimportant"><pre><span class = "verify">Materials </span> {{tx.materials}}</pre></b>
-        <br>
-        <b class="lessimportant"><pre><span class = "verify">Product History </span> {{tx.journey}}</pre></b>
-        <br>
-        <b class="lessimportant"><pre><span class = "verify">Key </span> {{tx.key}}</b>
       </div>
       {% endfor %}
       </center>
