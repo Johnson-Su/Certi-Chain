@@ -9,7 +9,7 @@
   - Run the python client onto your local machine for a more polished experience, and try adding multiple nodes!
   
  
-# Try the program using the Cert-Chain webite
+# Try the program using the Certi-Chain webite
 * Go to the [Certi-Chain Website](https://certi-chain-hw.herokuapp.com) and fill out the fields (All fields are needed!). **For now the universal account number is 1001**
 * This is the product information submition page, this is where you can add information into the blockchain.
 * Click 'Save Submition', this uploads your product to a list of pending products.
@@ -51,5 +51,10 @@
   `flask run --port 8001`
 * The only difference is the port, which does not have to be 8001 but we use 8001, 8002, 8003, etc. just for simplicity.
 * Now that a new node is running we must sync it up with the other nodes.
-* Open up the terminal and type the following *(Windows users may have to use the bash shell as it may not work on the cmd)*
+* Open up the terminal and type the following *(Windows users should use the bash shell as it does not work on cmd)*
+* Type the following:
+`curl -X POST \
+  http://127.0.0.1:8001/register_with \
+  -H 'Content-Type: application/json' \
+  -d '{"node_address": "http://127.0.0.1:8000"}'`
 
