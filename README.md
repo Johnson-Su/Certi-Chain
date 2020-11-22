@@ -9,9 +9,12 @@ Blockchain based authentication for luxury/artisan goods using python
   
  
 # Try the program using the Cert-Chain webite
-Go to the [Certi-Chain Website](https://certi-chain-hw.herokuapp.com) and fill out the fields (All fields are needed!). \\
+Go to the [Certi-Chain Website](https://certi-chain-hw.herokuapp.com) and fill out the fields (All fields are needed!). 
+
 **For now the universal account number is 1001**
+
 This is the product information submition page, this is where you can add information into the blockchain.
+
 Click 'Save Submition', this uploads your product to a list of pending products.
 Scroll down and keep track of the **Product ID**, you will need it to verify that your product is in the blockchain!
 Once you click 'Finalize Submition' you will submit all pending transactions into a Block. This block is then verified and added onto the chain.
