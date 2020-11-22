@@ -1,5 +1,5 @@
 # Certi-Chain
-Blockchain based authentication for luxury/artisan goods using python
+**Blockchain based authentication for luxury/artisan goods using python**
 
 ![](https://github.com/Johnson-Su/Certi-Chain/blob/main/certi-chain.gif)
 
@@ -37,5 +37,6 @@ Blockchain based authentication for luxury/artisan goods using python
 * You can submit information according to instructions above for the website.
 
 ## Add New Nodes!
-* Once 
+* Once you have 2 terminals up and running from the instuctions above its time to add a new node.
+  * *What is a node?* In this case a node just represents another computer. A blockchain is decentralized, so multiple computers are used to keep this database running. Each node needs to sync up with one another to keep up to date!
 
