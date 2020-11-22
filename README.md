@@ -47,10 +47,10 @@
   * *What is a node?* In this case a node just represents another computer. A blockchain is decentralized, so multiple computers are used to keep this database running. Each node needs to sync up with one another to keep up to date!
 * Open a *third* terminal and navigate to the same directory.
 * Start up another node by typing the following in the terminal/cmd:
-  * **Windows Users (cmd)**:
+  * **Windows Users (cmd)**:\
   `set FLASK_APP=Node_Server.py` \
   `flask run --port 8001`
-  * **Linux (terminal)**
+  * **Linux (terminal)**:\
   `export FLASK_APP=Node_Server.py` \
   `flask run --port 8001`
 * The only difference is the port, which does not have to be 8001 but we use 8001, 8002, 8003, etc. just for simplicity.
