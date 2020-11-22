@@ -1,5 +1,5 @@
 # Certi-Chain
-**Blockchain based authentication for luxury/artisan goods using python**
+**Blockchain based authentication for luxury/artisan goods using Python**
 
 
 ![](https://github.com/Johnson-Su/Certi-Chain/blob/main/certi-chain.gif)
