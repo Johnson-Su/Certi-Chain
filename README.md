@@ -18,7 +18,7 @@
 * You will be able to see that your product is indeed in the chain!
 * Want to see what's in the chain? Go to https://certi-chain-hw.herokuapp.com/chain to check it out!
 
-# Try the program on your local machine. Add new nodes at will!
+# Try the program on your local machine. 
 * Pull the [LocalBlockChain](https://github.com/Johnson-Su/Certi-Chain/tree/main/LocalBlockChain) from the repo
 * Make sure you have Python 3.6 and the required dependancies:
   * Flask
@@ -35,8 +35,20 @@
 * Run the file run_app.py by entering `python run_app.py`
 * Now if you navigate on your browser to http://localhost:5000/ you should see an information submition page.
 * You can submit information according to instructions above for the website.
+* You can check what the blockchain looks like by going to http://localhost:8000/chain
 
 ## Add New Nodes!
 * Once you have 2 terminals up and running from the instuctions above its time to add a new node.
   * *What is a node?* In this case a node just represents another computer. A blockchain is decentralized, so multiple computers are used to keep this database running. Each node needs to sync up with one another to keep up to date!
+* Open a *third* terminal and navigate to the same directory.
+* Start up another node by typing the following in the terminal/cmd:
+  * **Windows Users (cmd)**:
+  `set FLASK_APP=Node_Server.py`
+  `flask run --port 8001`
+  * **Linux (terminal)**
+  `export FLASK_APP=Node_Server.py`
+  `flask run --port 8001`
+* The only difference is the port, which does not have to be 8001 but we use 8001, 8002, 8003, etc. just for simplicity.
+* Now that a new node is running we must sync it up with the other nodes.
+* Open up the terminal and type the following *(Windows users may have to use the bash shell as it may not work on the cmd)*
 
