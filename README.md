@@ -31,10 +31,10 @@
 * Navigate to the LocalBlockChain directory on your machine
 * Start up the first node by typing the following in the terminal/cmd:
   * **Windows Users (cmd)**: \
-  `set FLASK_APP=Node_Server.py`
+  `set FLASK_APP=Node_Server.py` \
   `flask run --port 8000`
   * **Linux (terminal)**: \
-  `export FLASK_APP=Node_Server.py`
+  `export FLASK_APP=Node_Server.py` \
   `flask run --port 8000`
 * Then open up a *second* terminal/cmd and navigate to the same folder.
 * Run the file run_app.py by entering `python run_app.py`
