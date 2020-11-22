@@ -1,6 +1,8 @@
 # Certi-Chain
 Blockchain based authentication for luxury/artisan goods using python
 
+(/certi-chain.gif)
+
 *There are 2 ways to try Certi-Chain*
   - Easily add items to the blockchain or check if an item exists using the Cert-Chain website
   - Run the python client onto your local machine for a more polished experience, and try adding multiple nodes!
