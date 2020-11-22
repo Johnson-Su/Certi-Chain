@@ -52,6 +52,18 @@
   color: rgba(5, 5, 5, 0.45);
 }
 
+.lessimportant1{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.012em;
+  text-align: center;
+
+  color: rgba(5, 5, 5, 0.45);
+}
+
 .details{
   font-family: Roboto;
   font-style: normal;
