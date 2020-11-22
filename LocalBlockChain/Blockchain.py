@@ -3,7 +3,7 @@ import time
 
 class Blockchain:
 
-    DIFFICULTY = 2
+    DIFFICULTY = 4
 
     def __init__(self):
         self.chain = []
